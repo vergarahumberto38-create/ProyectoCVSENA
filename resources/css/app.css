@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--sena-green: #39a900;
+	--sena-green-dark: #247000;
+	--sena-green-soft: #e9f5df;
+	--sena-blue: #00324d;
+	--sena-ink: #25313b;
+	--sena-muted: #65727d;
+	--sena-line: #dce4e8;
+	--sena-surface: #ffffff;
+	--sena-background: #f3f7f2;
+}
+
+body.sena-app-shell,
+body.sena-guest-shell {
+	background: var(--sena-background);
+	color: var(--sena-ink);
+	font-family: 'Work Sans', sans-serif;
+}
+
+.sena-app-shell h1,
+.sena-app-shell h2,
+.sena-app-shell h3,
+.sena-guest-shell h1,
+.sena-guest-shell h2,
+.sena-guest-shell h3 {
+	color: var(--sena-blue);
+	font-family: 'Barlow', sans-serif;
+	letter-spacing: 0;
+}
+
+.sena-nav {
+	background: var(--sena-surface);
+	border-bottom: 4px solid var(--sena-green);
+	box-shadow: 0 2px 12px rgba(0, 50, 77, 0.08);
+}
+
+.sena-nav .sena-nav-link {
+	color: var(--sena-blue);
+	font-family: 'Barlow', sans-serif;
+	font-weight: 600;
+}
+
+.sena-nav .sena-nav-link:hover,
+.sena-nav .sena-nav-link[aria-current='page'] {
+	color: var(--sena-green-dark);
+}
+
+.sena-page-heading {
+	background: var(--sena-surface);
+	border-bottom: 1px solid var(--sena-line);
+}
+
+.sena-page-heading h2 {
+	font-size: 1.65rem;
+}
+
+.sena-btn-primary {
+	background: var(--sena-green);
+	border: 1px solid var(--sena-green);
+	color: #fff;
+	font-family: 'Barlow', sans-serif;
+	font-weight: 600;
+	transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.sena-btn-primary:hover {
+	background: var(--sena-green-dark);
+	border-color: var(--sena-green-dark);
+	transform: translateY(-1px);
+}
+
+.sena-btn-secondary {
+	background: var(--sena-blue);
+	border: 1px solid var(--sena-blue);
+	color: #fff;
+	font-family: 'Barlow', sans-serif;
+	font-weight: 600;
+}
+
+.sena-btn-outline {
+	background: var(--sena-surface);
+	border: 1px solid var(--sena-green);
+	color: var(--sena-green-dark);
+	font-family: 'Barlow', sans-serif;
+	font-weight: 600;
+}
+
+.sena-card {
+	background: var(--sena-surface);
+	border: 1px solid var(--sena-line);
+	border-radius: 0.5rem;
+	box-shadow: 0 8px 24px rgba(0, 50, 77, 0.07);
+}
+
+.sena-guest-shell input:focus,
+.sena-guest-shell select:focus,
+.sena-guest-shell textarea:focus,
+.sena-app-shell input:focus,
+.sena-app-shell select:focus,
+.sena-app-shell textarea:focus {
+	border-color: var(--sena-green);
+	box-shadow: 0 0 0 3px rgba(57, 169, 0, 0.16);
+	outline: none;
+}
