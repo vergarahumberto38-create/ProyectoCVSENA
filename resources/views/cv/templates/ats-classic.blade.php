@@ -18,8 +18,8 @@
     .ats-header-photo { display: block; width: 100%; height: 100%; max-width: none; object-fit: cover; }
     .ats-name { font-size: 24px; font-weight: bold; margin: 0 0 4px 0; }
     .ats-headline { font-size: 15px; color: #444; margin: 0 0 8px 0; }
-    .ats-contact-line { font-size: 13px; color: #333; margin: 0; overflow-wrap: anywhere; }
-    .ats-contact-line span:not(:last-child)::after { content: " | "; color: #999; }
+    .ats-contact-line { font-size: 15px; line-height: 1.45; color: #333; margin: 0; overflow-wrap: anywhere; }
+    .ats-contact-line span { display: block; margin-top: 2px; }
     .ats-section { margin-bottom: 18px; }
     .ats-section-title { font-size: 15px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #999; padding-bottom: 3px; margin-bottom: 8px; }
     .ats-item { margin-bottom: 12px; }
@@ -44,13 +44,13 @@
         <div class="ats-header-content">
             <p class="ats-name">{{ $profile->full_name }}</p>
             @if ($profile->headline)<p class="ats-headline">{{ $profile->headline }}</p>@endif
-            <p class="ats-contact-line">
+            <div class="ats-contact-line">
                 @if ($profile->phone) <span>{{ $profile->phone }}</span> @endif
                 @if ($profile->email ?? auth()->user()->email ?? null) <span>{{ $profile->email ?? auth()->user()->email }}</span> @endif
                 @if ($profile->city || $profile->country) <span>{{ trim(($profile->city ?? '').(($profile->city && $profile->country) ? ', ' : '').($profile->country ?? '')) }}</span> @endif
                 @if ($profile->linkedin_url) <span>{{ $profile->linkedin_url }}</span> @endif
                 @if ($profile->portfolio_url) <span>{{ $profile->portfolio_url }}</span> @endif
-            </p>
+            </div>
         </div>
     </div>
 

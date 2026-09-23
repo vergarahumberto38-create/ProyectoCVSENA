@@ -71,7 +71,7 @@ class CvExportController extends Controller
         // Estilos reutilizables
         $nameStyle = ['bold' => true, 'size' => 20];
         $headlineStyle = ['italic' => true, 'size' => 12, 'color' => '444444'];
-        $contactStyle = ['size' => 10, 'color' => '333333'];
+        $contactStyle = ['size' => 12, 'color' => '333333'];
         $sectionTitleStyle = ['bold' => true, 'size' => 12, 'color' => '222222'];
         $sectionTitleParagraph = ['spaceBefore' => 240, 'spaceAfter' => 100, 'borderBottomSize' => 6, 'borderBottomColor' => '999999'];
         $itemTitleStyle = ['bold' => true, 'size' => 11];
@@ -95,7 +95,9 @@ class CvExportController extends Controller
         ]);
 
         if (! empty($contactParts)) {
-            $section->addText(implode('  |  ', $contactParts), $contactStyle, ['spaceAfter' => 200]);
+            foreach ($contactParts as $contactPart) {
+                $section->addText($contactPart, $contactStyle, ['spaceAfter' => 20]);
+            }
         }
 
         // --- PERFIL PROFESIONAL ---

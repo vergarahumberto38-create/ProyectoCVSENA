@@ -254,11 +254,12 @@
         {{-- Navegación --}}
         <div class="flex justify-between pt-4 border-t">
             <button type="button" wire:click="previousStep"
-                class="px-4 py-2 rounded border {{ $step === 1 ? 'opacity-0 pointer-events-none' : '' }}">
-                Atrás
+                class="sena-btn-outline px-4 py-2 rounded {{ $step === 1 ? 'opacity-0 pointer-events-none' : '' }}"
+                aria-label="Volver al paso anterior">
+                <span aria-hidden="true">←</span> Atrás
             </button>
 
-            <button type="submit" class="px-6 py-2 rounded bg-indigo-600 text-white" wire:loading.attr="disabled">
+            <button type="submit" class="sena-btn-primary px-6 py-2 rounded" wire:loading.attr="disabled">
                 {{ $step === $totalSteps ? 'Guardar y finalizar' : 'Siguiente' }}
             </button>
         </div>
