@@ -25,9 +25,25 @@ class PasswordResetTest extends TestCase
 
         $user = User::factory()->create();
 
-        $this->post('/forgot-password', ['email' => $user->email]);
+        $response = $this->post('/forgot-password', ['email' => $user->email]);
 
+        $response->assertSessionHas('status');
         Notification::assertSentTo($user, ResetPassword::class);
+    }
+
+    public function test_reset_password_link_requests_are_throttled_for_one_minute(): void
+    {
+        Notification::fake();
+
+        $user = User::factory()->create();
+
+        $this->post('/forgot-password', ['email' => $user->email]);
+        $response = $this->from('/forgot-password')->post('/forgot-password', ['email' => $user->email]);
+
+        $response->assertRedirect('/forgot-password')
+            ->assertSessionHasErrors([
+                'email' => 'Ya solicitaste un enlace recientemente. Espera un minuto antes de solicitar otro.',
+            ]);
     }
 
     public function test_reset_password_screen_can_be_rendered(): void
